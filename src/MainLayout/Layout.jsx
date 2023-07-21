@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 const Layout = () => {
     return (
         <div>
-            <div className=" bg-[#F9F9FF]">
+            <div className="">
                 <div className="w-[1140px] mx-auto">
                     <Header></Header>
                     <Outlet></Outlet>
