@@ -5,10 +5,19 @@ import Header from "../components/Header/Header";
 
 const Layout = () => {
     return (
-        <div className="w-[1040px] mx-auto">
-            <Header></Header>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div>
+            <div className=" bg-[#F9F9FF]">
+                <div className="w-[1140px] mx-auto">
+                    <Header></Header>
+                    <Outlet></Outlet>
+                </div>
+
+            </div>
+            <div className="bg-black">
+                <div className="w-[1140px] mx-auto">
+                    <Footer></Footer>
+                </div>
+            </div>
         </div>
     );
 };
