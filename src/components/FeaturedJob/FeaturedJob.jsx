@@ -1,20 +1,49 @@
-import { useLoaderData } from "react-router-dom";
-// import FeaturedList from "../FeaturedList/FeaturedList";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import FeaturedList from "../FeaturedList/FeaturedList";
+
+
 
 
 const FeaturedJob = () => {
-    const allJobs = useLoaderData();
-    console.log(allJobs)
+
+    const [allJobs, setAllJobs] = useState([]);
+    const [showAllJobs, setShowAllJobs] = useState([]);
+    console.log(showAllJobs)
+    const sliced = allJobs.slice(0, 4);
+
+    useEffect(() => {
+        axios.get('jobDetails.json')
+            .then(data => {
+                setAllJobs(data.data)
+            })
+    }, [])
+
+    const handleShowAllJobs = () => {
+        const jobs = allJobs.map(job => job);
+        setShowAllJobs(jobs)
+    }
+
+
+
     return (
         <div id='featuredJob'>
             <div className='text-center'>
                 <h2>FeaturedJob</h2>
                 <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
             </div>
-            <div>
-                {/* {
-                    allJobs.map(job => console.log(job))
-                } */}
+            <div className="md:grid md:grid-cols-2 gap-6">
+                {
+                    sliced.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
+                }
+                {
+                    showAllJobs.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
+                }
+            </div>
+
+            <div className="text-center my-10">
+                <button onClick={handleShowAllJobs} className="py-[10px] text-white px-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg">Show All Jobs</button>
             </div>
         </div>
     );
