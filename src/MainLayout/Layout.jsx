@@ -5,14 +5,18 @@ import Header from "../components/Header/Header";
 
 const Layout = () => {
     return (
-        <div>
-            <div className="">
-                <div className="w-[1140px] mx-auto">
+        <div className="full-wrapper">
+            <div className="bg-[#F9F9FF]">
+                <div className="wrapper">
                     <Header></Header>
-                    <Outlet></Outlet>
                 </div>
 
             </div>
+
+            <div className="full-wrapper">
+                <Outlet></Outlet>
+            </div>
+
             <div className="bg-black">
                 <div className="w-[1140px] mx-auto">
                     <Footer></Footer>

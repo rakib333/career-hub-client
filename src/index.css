@@ -24,6 +24,15 @@ img {
   width: 100%;
 }
 
+.full-wrapper {
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1140px;
+  width: 98%;
+  margin: 0 auto;
+}
 
 
 body {

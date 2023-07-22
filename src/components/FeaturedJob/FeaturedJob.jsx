@@ -10,7 +10,6 @@ const FeaturedJob = () => {
 
     const [allJobs, setAllJobs] = useState([]);
     const [showAllJobs, setShowAllJobs] = useState([]);
-    console.log(showAllJobs)
     const sliced = allJobs.slice(0, 4);
 
     useEffect(() => {
@@ -29,16 +28,16 @@ const FeaturedJob = () => {
 
     return (
         <div id='featuredJob'>
-            <div className='text-center'>
-                <h2>FeaturedJob</h2>
-                <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
+            <div className='text-center mb-5'>
+                <h2 className="text-[48px] font-extrabold mb-3 text-black">Featured Jobs</h2>
+                <p className="text-[#757575] text-[17px] font-medium">Explore thousands of job opportunities with all the information you need. Its your future</p>
             </div>
             <div className="md:grid md:grid-cols-2 gap-6">
                 {
-                    sliced.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
+                    sliced.map(j => <FeaturedList key={j.id} job={j} ></FeaturedList>)
                 }
                 {
-                    showAllJobs.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
+                    showAllJobs.map(j => <FeaturedList key={j.id} job={j} ></FeaturedList>)
                 }
             </div>
 
