@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="py-5">
+        <div className="py-2">
             <div className="flex justify-between items-center">
                 <img className="w-[170px] h-[25px]" src={logo} alt="" />
                 <nav className="flex margin-header">

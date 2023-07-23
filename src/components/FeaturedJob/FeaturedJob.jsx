@@ -1,9 +1,9 @@
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import FeaturedList from "../FeaturedList/FeaturedList";
 
-
+export const DetailContext = createContext();
 
 
 const FeaturedJob = () => {
@@ -26,6 +26,7 @@ const FeaturedJob = () => {
 
 
 
+
     return (
         <div id='featuredJob'>
             <div className='text-center mb-5'>
@@ -34,16 +35,19 @@ const FeaturedJob = () => {
             </div>
             <div className="md:grid md:grid-cols-2 gap-6">
                 {
-                    sliced.map(j => <FeaturedList key={j.id} job={j} ></FeaturedList>)
+                    sliced.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
                 }
                 {
-                    showAllJobs.map(j => <FeaturedList key={j.id} job={j} ></FeaturedList>)
+                    showAllJobs.map(j => <FeaturedList key={j.id} job={j}></FeaturedList>)
                 }
             </div>
+
 
             <div className="text-center my-10">
                 <button onClick={handleShowAllJobs} className="py-[10px] text-white px-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg">Show All Jobs</button>
             </div>
+
+
         </div>
     );
 };

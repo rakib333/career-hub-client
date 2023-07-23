@@ -1,11 +1,11 @@
 import { faDollarSign, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import locationIcon from '../../assets/images/Icons/location.png';
+
 
 
 const FeaturedList = ({ job }) => {
+
 
     const { id, img, job_location, job_time, job_title, job_type, company_name, salary } = job;
 
@@ -38,8 +38,12 @@ const FeaturedList = ({ job }) => {
             </div>
 
             {/* <button onClick={() => handleViewDetails(id)} className="py-[10px] text-white px-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg">View Details</button> */}
+            <Link to={`/${id}`}>
+                <button className="py-[10px] text-white px-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg">
+                    View Details
+                </button>
+            </Link>
 
-            <Link to={`/jobDetail/${id}`} className="py-[10px] text-white px-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg">Link Details</Link>
 
 
         </div>
