@@ -1,0 +1,9 @@
+.applied-filter {
+    position: relative;
+}
+
+.applied-filter select {
+    position: absolute;
+    right: 100px;
+
+}

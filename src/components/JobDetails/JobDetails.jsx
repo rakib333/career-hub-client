@@ -8,6 +8,9 @@ import frame from '../../assets/images/Icons/Frame-1.png';
 import phoneNbr from '../../assets/images/Icons/phone.png';
 import mail from '../../assets/images/Icons/email.png';
 import location from '../../assets/images/Icons/location.png';
+import { addToDb } from "../utilities/fakedb";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const JobDetails = () => {
@@ -26,9 +29,15 @@ const JobDetails = () => {
         return
     }
 
+    const handleAddToDB = (data) => {
+        addToDb(data.id)
+        toast.success('Added to db', {
+            theme: 'colored'
+        })
+    }
+
     const clickedId = parseInt(paramsId.id);
     const getClickedData = jobs.find(job => job.id === clickedId);
-    console.log('clicked', getClickedData)
     const { job_description, job_responsibility, educational_requirement, experience, salary, job_title, phone, email, address } = getClickedData;
 
     return (
@@ -78,7 +87,8 @@ const JobDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="bg-gradient-to-r from-cyan-500 to-blue-500 py-5 w-full rounded-lg mt-4 text-center text-white font-semibold">Apply Now</button>
+                    <button onClick={() => handleAddToDB(getClickedData)} className="bg-gradient-to-r from-cyan-500 to-blue-500 py-5 w-full rounded-lg mt-4 text-center text-white font-semibold">Apply Now</button>
+                    <ToastContainer></ToastContainer>
                 </div>
             </div>
         </div>
